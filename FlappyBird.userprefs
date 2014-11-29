@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\KeyHandler.cs">
+    <Files>
+      <File FileName="Assets\Script\KeyHandler.cs" Line="13" Column="19" />
+      <File FileName="Assets\Script\MainApplication.cs" Line="22" Column="27" />
+      <File FileName="Assets\Script\CollisionHandler.cs" Line="11" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
