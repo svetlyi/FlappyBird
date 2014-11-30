@@ -15,8 +15,7 @@ public class CollisionHandler : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.name == "Obstacle") {
-			Debug.Log (col.gameObject.name);
-			//Destroy(this.gameObject);
+			MainApplication.decCountLife();
 		}
 	}
 }

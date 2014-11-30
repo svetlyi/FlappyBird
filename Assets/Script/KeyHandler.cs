@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class KeyHandler : MonoBehaviour {
-
+	public GameObject light;
 	// Use this for initialization
 	void Start () {
 	
@@ -10,7 +10,10 @@ public class KeyHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey("space")) {
+		Vector3 lightPos = transform.position;
+		lightPos.z = -3;
+		light.transform.position = lightPos;
+		if (Input.GetKey("space") || (Input.touchCount == 1)) {
 			this.gameObject.rigidbody.AddForce(0, 20, 0);
 		}
 	}
