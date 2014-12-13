@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MainApplication : MonoBehaviour {
 	static private int countLife = 3;
+	static private bool[] disabledObstacles = new bool[5] {false, false, false, false, false};
 
 	private const int OBJ_COUNT = 5;
 	private const float OBSTACLE_TOP = 1.7f;
@@ -23,6 +24,7 @@ public class MainApplication : MonoBehaviour {
 				//Vector3 newPos = new Vector3 (Random.Range (-4.0F, 2.0F), 4, Random.Range (-8.0F, 0F));
 			GameObject newobj = Instantiate (this.prefab, newPos, transform.rotation) as GameObject;
 			newobj.name = "Obstacle";
+			//newobj.GetComponent("obstacleColisHandler").;
 			obstacles[i] = newobj;
 		}
 	}
@@ -32,16 +34,20 @@ public class MainApplication : MonoBehaviour {
 		if (countLife > 0) {
 			Vector3 oldObjPos;
 
-			foreach (GameObject obstacle in obstacles) {
-				if (obstacle != null) {
-					oldObjPos = obstacle.transform.position;
+			for (int key = 0; key<obstacles.Length; key++) {
+				if (obstacles[key] != null) {
+					oldObjPos = obstacles[key].transform.position;
 					if (oldObjPos.x < -9) {
+						//TODO move to other method like "resetObstacle"
+						Destroy(obstacles[key].transform.GetComponent<Rigidbody>());
+						disabledObstacles[key] = false;
+						obstacles[key].transform.rotation = Quaternion.identity;
 						oldObjPos.x = oldObjPos.x * (-1);
 						oldObjPos.y = getYPos ();
 						this.score++;
 					}
 					oldObjPos.x -= speed;
-					obstacle.transform.position = oldObjPos;
+					obstacles[key].transform.position = oldObjPos;
 				}
 			}
 			speed += 0.00001f;
@@ -58,6 +64,10 @@ public class MainApplication : MonoBehaviour {
 
 	static public void decCountLife() {
 		countLife--;
+	}
+
+	static public void disableObstacle(int key) {
+		disabledObstacles[key] = true;
 	}
 
 	void OnGUI() {
