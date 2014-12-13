@@ -14,7 +14,9 @@ public class CollisionHandler : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.name == "Obstacle") {
+		if (col.gameObject.name == "Obstacle" && col.gameObject.GetComponent<Obstacle>().enabled) {
+			col.gameObject.GetComponent<Obstacle>().enabled = false;
+
 			MainApplication.decCountLife();
 			col.gameObject.AddComponent<Rigidbody>();
 			Vector3 force = new Vector3(20, 0, 0);

@@ -23,7 +23,6 @@ public class obstacleColisHandler : MonoBehaviour {
 			gameObject.AddComponent<Rigidbody>();
 			Vector3 force = new Vector3(20, 0, 0);
 			gameObject.rigidbody.AddForce(force);
-			MainApplication.disableObstacle(key);
 		}
 	}
 }

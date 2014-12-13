@@ -49,6 +49,7 @@
      <Compile Include="Assets\Script\CollisionHandler.cs" />
      <Compile Include="Assets\Script\KeyHandler.cs" />
      <Compile Include="Assets\Script\MainApplication.cs" />
+     <Compile Include="Assets\Script\Obstacle.cs" />
      <Compile Include="Assets\Script\obstacleColisHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
